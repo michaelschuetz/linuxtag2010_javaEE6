@@ -2,6 +2,7 @@ package de.akquinet.linuxTag2010.javaEE6Tutorial;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.inject.Inject;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -9,66 +10,70 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public @Model class HelloWorld
-{
-   private final String text = "Hello World!";
+/**
+ * @author m.schuetz
+ */
+public @Model
+class HelloWorld {
+	private final String text = "Hello World!";
 
-   private String letters;
-   
-   private String numbers;
-   
-   private String email;
-   
-   public HelloWorld() {}
+	private String letters;
 
-   @PostConstruct
-   public void initialize()
-   {
-      System.out.println(this.getClass().getSimpleName() + " was constructed");
-   }
+	private String numbers;
 
-   public String getText()
-   {
-      return text;
-   }
+	private String email;
 
-   @NotNull
-   @NotEmpty
-   @Pattern(regexp = "[A-Za-z]*", message = "must contain only letters")
-   public String getLetters()
-   {
-      return letters;
-   }
+	@Inject
+	private HelloService helloService;
 
-   public void setLetters(String letters)
-   {
-      this.letters = letters;
-   }
+	public HelloWorld() {
+	}
 
-   @NotNull
-   @NotEmpty
-   @Digits(fraction = 0, integer = 2)
-   public String getNumbers()
-   {
-      return numbers;
-   }
+	@PostConstruct
+	public void initialize() {
+		System.out
+				.println(this.getClass().getSimpleName() + " was constructed");
+	}
 
-   public void setNumbers(String numbers)
-   {
-      this.numbers = numbers;
-   }
+	public String getText() {
+		return text;
+	}
 
-   @NotNull
-   @NotEmpty
-   @Email
-   public String getEmail()
-   {
-      return email;
-   }
+	@NotNull
+	@NotEmpty
+	@Pattern(regexp = "[A-Za-z]*", message = "must contain only letters")
+	public String getLetters() {
+		return letters;
+	}
 
-   public void setEmail(String email)
-   {
-      this.email = email;
-   }
+	public void setLetters(String letters) {
+		this.letters = letters;
+	}
+
+	@NotNull
+	@NotEmpty
+	@Digits(fraction = 0, integer = 2)
+	public String getNumbers() {
+		return numbers;
+	}
+
+	public void setNumbers(String numbers) {
+		this.numbers = numbers;
+	}
+
+	@NotNull
+	@NotEmpty
+	@Email
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void helloToEjb() {
+		 System.out.println("Hello to " + helloService.getName());
+	}
 
 }

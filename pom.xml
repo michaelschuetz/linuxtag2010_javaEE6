@@ -62,6 +62,13 @@
          <scope>provided</scope>
          <version>1.0-SP1</version>
       </dependency>
+      <!-- EJB -->
+      <dependency>
+         <groupId>org.jboss.ejb3</groupId>
+         <artifactId>jboss-ejb3-api</artifactId>
+         <scope>provided</scope>
+         <version>3.1.0</version>
+      </dependency>
       <!-- Common annotations (e.g., @PostConstruct, @PreDestroy, @Generated, @Resource)  -->
       <dependency>
          <groupId>javax.annotation</groupId>

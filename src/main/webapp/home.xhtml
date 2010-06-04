@@ -44,6 +44,11 @@
             <h:commandButton id="check" action="check" value="Check values"/>
             <h:outputText value=" All clear!" rendered="#{facesContext.postback and empty facesContext.messageList}" style="color: green;"/>
          </p>
+         
+         
+         <br />
+         <h:commandButton action="#{helloWorld.helloToEjb}" value="Hello to EJB" />
+         
       </h:form>
    </ui:define>
 </ui:composition>
