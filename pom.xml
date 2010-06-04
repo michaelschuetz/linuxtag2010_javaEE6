@@ -15,7 +15,8 @@
       -->
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <!-- To set the jboss.home environment variable the Maven way, set the jboss.home property in an active profile in the Maven 2 settings.xml file -->
-      <jboss.home>${env.JBOSS_HOME}</jboss.home>
+      <!-- <jboss.home>${env.JBOSS_HOME}</jboss.home>-->
+      <jboss.home>C:\01-Development\Projekte\LinuxTag2010\jboss-6.0.0.20100429-M3</jboss.home>
       <jboss.domain>default</jboss.domain>
       <!-- The version of Weld extensions in use -->
       <weld.extensions.version>1.0.0-CR2</weld.extensions.version>
@@ -59,6 +60,7 @@
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
          <scope>provided</scope>
+         <version>1.0-SP1</version>
       </dependency>
       <!-- Common annotations (e.g., @PostConstruct, @PreDestroy, @Generated, @Resource)  -->
       <dependency>
