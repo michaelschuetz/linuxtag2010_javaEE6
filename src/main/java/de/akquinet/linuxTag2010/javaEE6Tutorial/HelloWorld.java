@@ -2,7 +2,6 @@ package de.akquinet.linuxTag2010.javaEE6Tutorial;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
-import javax.inject.Inject;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -22,9 +21,6 @@ class HelloWorld {
 	private String numbers;
 
 	private String email;
-
-	@Inject
-	private HelloService helloService;
 
 	public HelloWorld() {
 	}
@@ -71,9 +67,4 @@ class HelloWorld {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public void helloToEjb() {
-		 System.out.println("Hello to " + helloService.getName());
-	}
-
 }
